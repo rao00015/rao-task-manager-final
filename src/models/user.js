@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require ('bcrypt')
 const jwt = require('jsonwebtoken')
-const Task = require('./Task')
+const task = require('./task')
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema({
 })
 
 userSchema.virtual('mytasks', {
-    ref : 'Task',
+    ref : 'task',
     localField : '_id',
     foreignField : 'owner'
 })
